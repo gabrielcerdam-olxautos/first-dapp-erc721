@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>StarNotary DAPP</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <style>
+    body {
+      width: 80%;
+      margin: auto;
+    }
+    header {
+      margin: auto;
+      text-align: center;
+    }
+    body > section {
+      display: flex;
+      justify-content: space-evenly;
+    }
+    body section > section{
+      margin: 3rem 0;
+    }
+    body > footer {
+      text-align: center;
+      font-size: 24px;
+    }
+    input {
+      display: block;
+      margin-bottom: 12px;
+    }
+
+  </style>
+  <body>
+    <header>
+      <h1>StarNotary Token Dapp</h1>
+    </header>
+    <section>
+      <section>
+        <h3>Create a Star</h3>
+        <label for="starName">Star Name:</label><input type="text" id="starName"></input>
+        <label for="starId">Star ID:</label><input type="text" id="starId"></input>
+        <button id="createStar" onclick="App.createStar()">Create Star</button>
+      </section>
+      <section>
+        <h1>Look up a Star</h1>
+        <label for="name">Star ID:</label><input type="text" id="lookid"></input>
+        <button onclick="App.lookUp()">Look Up a Star</button>
+      </section>  
+    </section>
+    <footer>
+      <span id="status"></span>
+    </footer>
+    <script src="index.js"></script>
+    <!-- 
+      1 .- create star
+      2 .- list sale's star // list, pending, how to do that
+      3.- buy star
+      4.- lookUptokenIdToStarInfo
+      5.- exchangeStars
+      6.- TransferStar
+     -->
+  </body>
+</html>
