@@ -72,7 +72,8 @@ contract StarNotary is ERC721 {
     function exchangeStars(uint256 _tokenId1, uint256 _tokenId2) public {
         //1. Passing to star tokenId you will need to check if the owner of _tokenId1 or _tokenId2 is the sender
         require(
-            ownerOf(_tokenId1) == msg.sender,
+            ownerOf(_tokenId1) == msg.sender ||
+                ownerOf(_tokenId2) == msg.sender,
             "You can't sale the Star you don't owned"
         );
 
@@ -81,20 +82,19 @@ contract StarNotary is ERC721 {
         address ownerToken1BeforeTransfer = ownerOf(_tokenId1);
         address ownerToken2BeforeTransfer = ownerOf(_tokenId2);
         //4. Use _safeTransferFrom function to exchange the tokens.
-        if (ownerToken1BeforeTransfer == msg.sender) {
-            // because only the property can change him token
-            _transfer(
-                ownerToken1BeforeTransfer,
-                ownerToken2BeforeTransfer,
-                _tokenId1
-            );
-            // should be response sending token if the second address do nothing to lose their token?
-            _transfer(
-                ownerToken2BeforeTransfer,
-                ownerToken1BeforeTransfer,
-                _tokenId2
-            );
-        }
+        // - transfer token1 to ownertoken2 addres
+        _transfer(
+            ownerToken1BeforeTransfer,
+            ownerToken2BeforeTransfer,
+            _tokenId1
+        );
+        // should be response sending token if the second address do nothing to lose their token?
+        // - transfer token2 to ownertoken1 addres
+        _transfer(
+            ownerToken2BeforeTransfer,
+            ownerToken1BeforeTransfer,
+            _tokenId2
+        );
     }
 
     // Implement Task 1 Transfer Stars
