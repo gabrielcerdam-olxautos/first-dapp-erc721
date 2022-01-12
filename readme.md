@@ -64,6 +64,6 @@ or if you are using ganache
 > await instance.symbol // -> Non-Fungible-Token
 ```
 
-### Contract Addres
+### Contract Addres in Rinkeby
 
 #### [0xc02e9836631ce59546c480fb58bf75de1119c0783a92c5fee92f2a3122cff327](https://rinkeby.etherscan.io/tx/0xc02e9836631ce59546c480fb58bf75de1119c0783a92c5fee92f2a3122cff327)
